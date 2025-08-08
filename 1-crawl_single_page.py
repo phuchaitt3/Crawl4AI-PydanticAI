@@ -1,14 +1,14 @@
 import asyncio
-from crawl4ai import *
+from crawl4ai import AsyncWebCrawler
 
 async def main():
     async with AsyncWebCrawler() as crawler:
         result = await crawler.arun(
-            url="https://www.topcv.vn/viec-lam/ai-developer/1777282.html?ta_source=JobSearchList_LinkDetail&u_sr_id=eZhYJZBtmQxDVT9RLNSB4Wkk55ixGyGkyrEeJXDb_1751177482",
+            url="https://addyo.substack.com/p/the-70-problem-hard-truths-about",
         )
-        # Save markdown to a file
+
         with open("output.md", "w", encoding="utf-8") as f:
-            f.write(result.markdown)
+            f.write(result.markdown) # type: ignore
         print("Markdown content has been saved to output.md")
 
 if __name__ == "__main__":
